@@ -24,3 +24,26 @@ let pokemon3 = {
     abilities: 'Overgrow'
 }
 
+let pokemon4 = {
+    name: 'Charmander',
+    height: 2.00,
+    types: ['fire'],
+    category: 'Lizard',
+    abilities: 'Blaze'
+}
+
+let pokemon5 = {
+    name: 'Charmeleon',
+    height: 3.07,
+    types: ['fire'],
+    category: 'Flame',
+    abilities: 'Blaze'
+}
+
+let pokemon6 = {
+    name: 'Charizard',
+    height: 5.07,
+    types: ['fire', 'flying'],
+    category: 'Flame',
+    abilities: 'Blaze'
+}
