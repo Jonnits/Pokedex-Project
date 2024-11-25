@@ -47,3 +47,28 @@ let pokemon6 = {
     category: 'Flame',
     abilities: 'Blaze'
 }
+
+let pokemon7 = {
+    name: 'Squirtle',
+    height: 1.08,
+    types: ['water'],
+    category: 'Tiny Turtle',
+    abilities: 'Torrent'
+}
+
+let pokemon8 = {
+    name: 'Wartortle',
+    height: 3.03,
+    types: ['water'],
+    category: 'Turtle',
+    abilities: 'Torrent'
+}
+
+let pokemon9 = {
+    name: 'Blastoise',
+    height: 5.03,
+    types: ['water'],
+    category: 'Shellfish',
+    abilities: 'Torrent'
+}
+]
