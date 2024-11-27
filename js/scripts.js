@@ -68,6 +68,16 @@ let pokemonList = [
 
 // for loop iterating over each item in pokemonList
 for (let i = 0; i < pokemonList.length; i++) {
-// Writing Pokemon name and height to document
-document.write('<p class="jaro">' + pokemonList[i].name + " (height: " + pokemonList[i].height + ")<br>");
+
+    // Writing Pokemon name and height to document output
+    let output = '<span class="jaro">' + pokemonList[i].name + " (height: " + pokemonList[i].height + ")</span>";
+
+    // Conditional to check if Pokemon is over 5'
+    if (pokemonList[i].height > 5) {
+        output += "<span class='special-text'> - Wow, that's big!</span>";
+    }
+
+    // Write the output to the document
+    output += '<br>';
+    document.write(output);
 }

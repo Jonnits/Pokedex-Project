@@ -2,6 +2,7 @@
     --main-body-color: #ee5252;
     --font-body: "Jaro", sans-serif;
     --main-text-color: #fff;
+    --special-text-color: #eddd62;
   }
 
   .jaro {
@@ -21,3 +22,11 @@
     font-weight: 400;
     font-style: normal;
     }
+
+  .special-text {
+    font-family: "Jaro", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--special-text-color);
+    display: inline;
+  }
