@@ -1,0 +1,23 @@
+:root {
+    --main-body-color: #ee5252;
+    --font-body: "Jaro", sans-serif;
+    --main-text-color: #fff;
+  }
+
+  .jaro {
+    font-family: "Jaro", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--main-text-color);
+  }
+
+  body {
+    background-color: var(--main-body-color);
+  }
+
+  p {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-style: normal;
+    }

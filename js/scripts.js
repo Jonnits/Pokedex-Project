@@ -1,82 +1,73 @@
-let pokemonList = [];
+// pokemonList array to display pokemon objects
 
-let pokemon1 = {
-    name: 'Bulbasaur',
-    height: 2.04,
-    types: ['grass', 'poison'],
-    weaknesses: ['fire', 'ice', 'flying', 'psychic'],
-    category: 'Seed',
-    abilities: 'Overgrow'
-}
+let pokemonList = [
+    {name: 'Bulbasaur',
+        height: 2.04,
+        types: ['grass', 'poison'],
+        weaknesses: ['fire', 'ice', 'flying', 'psychic'],
+        category: 'Seed',
+        abilities: 'Overgrow'
+    },
+    {name: 'Ivysaur',
+        height: 3.03,
+        types: ['grass', 'poison'],
+        weaknesses: ['fire', 'ice', 'flying', 'psychic'],
+        category: 'Seed',
+        abilities: 'Overgrow'
+    },
+    {name: 'Venusaur',
+        height: 6.07,
+        types: ['grass', 'poison'],
+        weaknesses: ['fire', 'ice', 'flying', 'psychic'],
+        category: 'Seed',
+        abilities: 'Overgrow'
+    },
+    {name: 'Charmander',
+        height: 2.00,
+        types: ['fire'],
+        weaknesses: ['water', 'ground', 'rock'],
+        category: 'Lizard',
+        abilities: 'Blaze'
+    },
+    {name: 'Charmeleon',
+        height: 3.07,
+        types: ['fire'],
+        weaknesses: ['water', 'ground', 'rock'],
+        category: 'Flame',
+        abilities: 'Blaze'
+    },
+    {name: 'Charizard',
+        height: 5.07,
+        types: ['fire', 'flying'],
+        weaknesses: ['water', 'electric', 'rock'],
+        category: 'Flame',
+        abilities: 'Blaze'
+    },
+    {name: 'Squirtle',
+        height: 1.08,
+        types: ['water'],
+        weaknesses: ['grass', 'electric'],
+        category: 'Tiny Turtle',
+        abilities: 'Torrent'
+    },
+    {name: 'Wartortle',
+        height: 3.03,
+        types: ['water'],
+        weaknesses: ['grass', 'electric'],
+        category: 'Turtle',
+        abilities: 'Torrent'
+    },
+    {name: 'Blastoise',
+        height: 5.03,
+        types: ['water'],
+        weaknesses: ['grass', 'electric'],
+        category: 'Shellfish',
+        abilities: 'Torrent'
+    }
+];
 
-let pokemon2 = {
-    name: 'Ivysaur',
-    height: 3.03,
-    types: ['grass', 'poison'],
-    weaknesses: ['fire', 'ice', 'flying', 'psychic'],
-    category: 'Seed',
-    abilities: 'Overgrow'
-}
-
-let pokemon3 = {
-    name: 'Venusaur',
-    height: 6.07,
-    types: ['grass', 'poison'],
-    weaknesses: ['fire', 'ice', 'flying', 'psychic'],
-    category: 'Seed',
-    abilities: 'Overgrow'
-}
-
-let pokemon4 = {
-    name: 'Charmander',
-    height: 2.00,
-    types: ['fire'],
-    weaknesses: ['water', 'ground', 'rock'],
-    category: 'Lizard',
-    abilities: 'Blaze'
-}
-
-let pokemon5 = {
-    name: 'Charmeleon',
-    height: 3.07,
-    types: ['fire'],
-    weaknesses: ['water', 'ground', 'rock'],
-    category: 'Flame',
-    abilities: 'Blaze'
-}
-
-let pokemon6 = {
-    name: 'Charizard',
-    height: 5.07,
-    types: ['fire', 'flying'],
-    weaknesses: ['water', 'electric', 'rock'],
-    category: 'Flame',
-    abilities: 'Blaze'
-}
-
-let pokemon7 = {
-    name: 'Squirtle',
-    height: 1.08,
-    types: ['water'],
-    weaknesses: ['grass', 'electric'],
-    category: 'Tiny Turtle',
-    abilities: 'Torrent'
-}
-
-let pokemon8 = {
-    name: 'Wartortle',
-    height: 3.03,
-    types: ['water'],
-    weaknesses: ['grass', 'electric'],
-    category: 'Turtle',
-    abilities: 'Torrent'
-}
-
-let pokemon9 = {
-    name: 'Blastoise',
-    height: 5.03,
-    types: ['water'],
-    weaknesses: ['grass', 'electric'],
-    category: 'Shellfish',
-    abilities: 'Torrent'
+// for loop iterating over each item in pokemonList
+for (let i = 0; i < pokemonList.length; i++) {
+// Writing Pokemon name and height to document
+document.write('<p class="jaro">' + pokemonList[i].name + " (height: " + pokemonList[i].height + ")<br>");
 }
