@@ -1,7 +1,7 @@
 // IIFE to wrap around pokemonList array
-(function () {
-    // pokemonList array to display pokemon objects
+let pokemonRepository = (function () {
 
+    // pokemonList array to display pokemon objects
     let pokemonList = [
         {
             name: 'Bulbasaur',
@@ -82,6 +82,7 @@
         let span = document.createElement('span');
         span.className = 'jaro';
         span.innerHTML = `${pokemon.name} (height: ${pokemon.height})`;
+
         // Conditional to check if Pokemon is over 5' and add specialText if so
         if (pokemon.height > 5) {
             let specialText = document.createElement('span');
@@ -89,6 +90,7 @@
             specialText.innerHTML = " - Wow, that's big!"
             span.appendChild(specialText);
     }
+    
     // Write output to the document with line break between each item
     let br = document.createElement('br');
     document.body.appendChild(span);
