@@ -1,7 +1,7 @@
 // IIFE to wrap around pokemonList array
 let pokemonRepository = (function () {
 
-    // pokemonList array to display pokemon objects
+    // pokemonList array to privately display Pokemon data
     let pokemonList = [
         {
             name: 'Bulbasaur',
@@ -77,7 +77,24 @@ let pokemonRepository = (function () {
         }
     ];
 
+// Public funcrion to return all Pokemon in the list
+function getAll() {
+    return pokemonList;
+}
+
+// Public function to add a Pokemon to the list
+function add(pokemon) {
+
+    // Validation to ensure the input is a valid object
+    if (typeof pokemon === 'object' && 'name' in pokemon && 'height' in pokemon) {
+        pokemonList.push(pokemon);
+    } else {
+        console.error('Invalid Pokemon object.');
+    }
+}
+
     // forEach function iterating over each item in pokemonList array
+    function displayAll() {
     pokemonList.forEach(function(pokemon) {
         let span = document.createElement('span');
         span.className = 'jaro';
@@ -90,10 +107,17 @@ let pokemonRepository = (function () {
             specialText.innerHTML = " - Wow, that's big!"
             span.appendChild(specialText);
     }
-    
+
     // Write output to the document with line break between each item
     let br = document.createElement('br');
     document.body.appendChild(span);
     document.body.appendChild(br);
     });
+}
+
+// Return public methods
+return { getAll, add, displayAll };
 })();
+
+// Command to display Pokemon
+pokemonRepository.displayAll();
