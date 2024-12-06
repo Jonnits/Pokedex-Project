@@ -66,18 +66,20 @@ let pokemonList = [
     }
 ];
 
-// for loop iterating over each item in pokemonList
-for (let i = 0; i < pokemonList.length; i++) {
-
-    // Writing Pokemon name and height to document output
-    let output = '<span class="jaro">' + pokemonList[i].name + " (height: " + pokemonList[i].height + ")</span>";
-
-    // Conditional to check if Pokemon is over 5'
-    if (pokemonList[i].height > 5) {
-        output += "<span class='special-text'> - Wow, that's big!</span>";
-    }
-
-    // Write the output to the document
-    output += '<br>';
-    document.write(output);
+// forEach function iterating over each item in pokemonList array
+pokemonList.forEach(function(pokemon) {
+    let span = document.createElement('span');
+    span.className = 'jaro';
+    span.innerHTML = `${pokemon.name} (height: ${pokemon.height})`;
+    // Conditional to check if Pokemon is over 5' and add specialText if so
+    if (pokemon.height > 5) {
+        let specialText = document.createElement('span');
+        specialText.className = 'special-text';
+        specialText.innerHTML = " - Wow, that's big!"
+        span.appendChild(specialText);
 }
+// Write output to the document with line break between each item
+let br = document.createElement('br');
+document.body.appendChild(span);
+document.body.appendChild(br);
+});
