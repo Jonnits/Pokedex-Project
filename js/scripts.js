@@ -86,10 +86,13 @@ function getAll() {
 function add(pokemon) {
 
     // Validation to ensure the input is a valid object
-    if (typeof pokemon === 'object' && 'name' in pokemon && 'height' in pokemon) {
+    const expectedKeys = ['name', 'height', 'types', 'weaknesses', 'category', 'abilities'];
+    const actualKeys = Object.keys(pokemon);
+
+    if (typeof pokemon === 'object' && expectedKeys.every(key => actualKeys.includes(key))) {
         pokemonList.push(pokemon);
     } else {
-        console.error('Invalid Pokemon object.');
+        console.error('Invalid Pokemon object. Must contain ALL required properties.');
     }
 }
 
