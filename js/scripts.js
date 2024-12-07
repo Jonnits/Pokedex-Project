@@ -96,6 +96,11 @@ function add(pokemon) {
     }
 }
 
+// Public function to find individual Pokemon by their name
+function findByName(name) {
+    return pokemonList.filter(pokemon => pokemon.name === name);
+}
+
     // forEach function iterating over each item in pokemonList array
     function displayAll() {
     pokemonList.forEach(function(pokemon) {
@@ -119,7 +124,7 @@ function add(pokemon) {
 }
 
 // Return public methods
-return { getAll, add, displayAll };
+return { getAll, add, displayAll, findByName };
 })();
 
 // Command to display Pokemon
