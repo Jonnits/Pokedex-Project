@@ -100,34 +100,28 @@ function findByName(name) {
     return pokemonList.filter(pokemon => pokemon.name === name);
 }
 
+// Function to add a list item for a single Pokemon
+function addListItem(pokemon) {
+    let pokemonListElement = document.querySelector('.pokemon-list');
+    let listItem = document.createElement('li');
+
+// Create a button for the Pokemon
+let button = document.createElement('button');
+button.innerText = pokemon.name;
+button.classList.add('pokemon-button');
+
+ // Append the span and button to the list item
+ listItem.appendChild(button);
+
+ // Append the list item to the unordered list
+ pokemonListElement.appendChild(listItem);
+}
+
     // forEach function iterating over each item in pokemonList array
     function displayAll() {
-        let pokemonListElement = document.querySelector('.pokemon-list');
-    
-    pokemonList.forEach(function(pokemon) {
-        let listItem = document.createElement('li');
-        let span = document.createElement('span');
-        span.className = 'jaro';
-        span.innerHTML = `${pokemon.name} (height: ${pokemon.height})`;
-        // Create a button for the Pokemon
-        let button = document.createElement('button');
-        button.innerText = pokemon.name;
-        button.classList.add('pokemon-button');
-        // Conditional to check if Pokemon is over 5' and add specialText if so
-        if (pokemon.height > 5) {
-            let specialText = document.createElement('span');
-            specialText.className = 'special-text';
-            specialText.innerHTML = " - Wow, that's big!"
-            span.appendChild(specialText);
-    }
-
-    // Append the span and button to the list item
-    listItem.appendChild(span);
-    listItem.appendChild(button);
-
-    // Append the list item to the unordered list
-    pokemonListElement.appendChild(listItem);
-    });
+        pokemonList.forEach(function (pokemon) {
+            addListItem(pokemon);
+        });
 }
 
 // Return public methods

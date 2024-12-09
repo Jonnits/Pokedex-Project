@@ -13,6 +13,11 @@
     color: var(--main-text-color);
   }
 
+  h1 {
+    font-family: "Jaro", sans-serif;
+    color:#fff;
+  }
+
   body {
     background-color: var(--main-body-color);
   }
@@ -48,4 +53,10 @@
 
 .pokemon-button:hover {
     background-color: #0757b9;
+}
+
+.pokemon-list {
+  list-style: none; /* Removes bullets */
+  padding: 0; /* Removes default padding */
+  margin: 0; /* Removes default margin */
 }
