@@ -84,7 +84,6 @@ function getAll() {
 
 // Public function to add a Pokemon to the list
 function add(pokemon) {
-
     // Validation to ensure the input is a valid object
     const expectedKeys = ['name', 'height', 'types', 'weaknesses', 'category', 'abilities'];
     const actualKeys = Object.keys(pokemon);
@@ -103,11 +102,17 @@ function findByName(name) {
 
     // forEach function iterating over each item in pokemonList array
     function displayAll() {
+        let pokemonListElement = document.querySelector('.pokemon-list');
+    
     pokemonList.forEach(function(pokemon) {
+        let listItem = document.createElement('li');
         let span = document.createElement('span');
         span.className = 'jaro';
         span.innerHTML = `${pokemon.name} (height: ${pokemon.height})`;
-
+        // Create a button for the Pokemon
+        let button = document.createElement('button');
+        button.innerText = pokemon.name;
+        button.classList.add('pokemon-button');
         // Conditional to check if Pokemon is over 5' and add specialText if so
         if (pokemon.height > 5) {
             let specialText = document.createElement('span');
@@ -116,10 +121,12 @@ function findByName(name) {
             span.appendChild(specialText);
     }
 
-    // Write output to the document with line break between each item
-    let br = document.createElement('br');
-    document.body.appendChild(span);
-    document.body.appendChild(br);
+    // Append the span and button to the list item
+    listItem.appendChild(span);
+    listItem.appendChild(button);
+
+    // Append the list item to the unordered list
+    pokemonListElement.appendChild(listItem);
     });
 }
 
@@ -128,4 +135,6 @@ return { getAll, add, displayAll, findByName };
 })();
 
 // Command to display Pokemon
+document.addEventListener('DOMContentLoaded', function () {
 pokemonRepository.displayAll();
+});
