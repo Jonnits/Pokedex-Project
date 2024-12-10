@@ -77,7 +77,7 @@ let pokemonRepository = (function () {
         }
     ];
 
-// Public funcrion to return all Pokemon in the list
+// Public function to return all Pokemon in the list
 function getAll() {
     return pokemonList;
 }
@@ -100,6 +100,18 @@ function findByName(name) {
     return pokemonList.filter(pokemon => pokemon.name === name);
 }
 
+// Function to show Pokemon details
+function showDetails(pokemon) {
+    console.log(pokemon);
+}
+
+// Function to add event listener to a button (bonus task) instead of inside addListItem()
+function addEventListenerToButton(button, pokemon) {
+    button.addEventListener('click', function () {
+        showDetails(pokemon);
+});
+}
+
 // Function to add a list item for a single Pokemon
 function addListItem(pokemon) {
     let pokemonListElement = document.querySelector('.pokemon-list');
@@ -110,11 +122,19 @@ let button = document.createElement('button');
 button.innerText = pokemon.name;
 button.classList.add('pokemon-button');
 
+// Event listener for button
+button.addEventListener('click', function () {
+    showDetails(pokemon);
+});
+
  // Append the span and button to the list item
  listItem.appendChild(button);
 
  // Append the list item to the unordered list
  pokemonListElement.appendChild(listItem);
+
+ // Add event listener to button
+ addEventListenerToButton(button, pokemon);
 }
 
     // forEach function iterating over each item in pokemonList array
