@@ -16,7 +16,8 @@ let pokemonRepository = (function () {
     }
   
     function showDetails(pokemon) {
-      console.log(pokemon);
+        loadDetails(pokemon);
+        console.log(pokemon);
     }
   
     function addListItem(pokemon) {
@@ -30,29 +31,58 @@ let pokemonRepository = (function () {
       pokemonListElement.appendChild(listItem);
     }
   
+    function showLoadingMessage() {
+        let loadingMessage = document.createElement('p');
+        loadingMessage.innerText = 'Loading...';
+        loadingMessage.classList.add('loading-message');
+        document.body.appendChild(loadingMessage);
+      }
+  
+      function hideLoadingMessage() {
+        let loadingMessage = document.querySelector('.loading-message');
+        if (loadingMessage) {
+          document.body.removeChild(loadingMessage);
+        }
+    }
+
     function loadList() {
+        console.log('loadList started');
+        showLoadingMessage();
       return fetch(apiUrl)
         .then(response => response.json())
-        .then(json => json.results.forEach(item => {
+        .then(json => { 
+            json.results.forEach(item => {
           let pokemon = {
             name: item.name,
             detailsUrl: item.url
           };
           add(pokemon);
-        }))
-        .catch(e => console.error(e));
-    }
+        });
+    })
+        .catch(e => console.error('Error loading list:', e))
+        .finally(() => {
+            hideLoadingMessage();
+        console.log('Loading message hidden');
+    });
+}
   
     function loadDetails(item) {
       let url = item.detailsUrl;
+      console.log('loadDetails started for:', item.name);
+      showLoadingMessage();
       return fetch(url)
         .then(response => response.json())
         .then(details => {
+          console.log('Details for:', item.name, details);
           item.imageUrl = details.sprites.front_default;
           item.height = details.height;
           item.types = details.types;
         })
-        .catch(e => console.error(e));
+        .catch(e => console.error('Error loading details for:', item.name, e))
+        .finally(() => {
+            hideLoadingMessage();
+            console.log('Loading message hidden');
+        });
     }
   
     return {
@@ -65,4 +95,8 @@ let pokemonRepository = (function () {
     };
   })();
   
-  pokemonRepository.loadList().then(() => pokemonRepository.getAll().forEach(pokemon => pokemonRepository.addListItem(pokemon)));
+  pokemonRepository.loadList().then(() => { 
+    pokemonRepository.getAll().forEach(pokemon => {
+        pokemonRepository.addListItem(pokemon);
+    });
+});
