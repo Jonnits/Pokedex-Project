@@ -15,7 +15,7 @@
 
   h1 {
     font-family: "Jaro", sans-serif;
-    color:#fff;
+    color:var(--special-text-color);
   }
 
   body {
@@ -72,19 +72,38 @@
   background: rgba(0, 0, 0, 0.5);
   z-index: 999; /*displays over other content */
   overflow: auto; /*allows scrolling if screen not big enough */
-  display: grid;
+  display: none;
   text-align: center; /* (w/ display) used to center modal */
+}
+
+#modal-container.is-visible {
+  position: fixed;
+  padding: 20px;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  overflow: auto;
+  display: grid;
+  text-align: center;
 }
 
 .modal {
   margin: auto;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   box-sizing: border-box;
   background: #fff;
-  padding: 15px;
+  padding: 20px;
   width: 100%;
   max-width: 700px;
-  text-align: left;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 }
 
 .modal-close {
