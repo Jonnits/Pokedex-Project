@@ -1,0 +1,1 @@
+This application presents an interactive index of Pokemon. It allows the user to peruse a list of all 150 first generation Pokemon and select each individually. Selected Pokemon display a modal with the Pokemon's name, height and image.
