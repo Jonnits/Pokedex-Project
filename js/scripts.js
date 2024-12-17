@@ -1,25 +1,26 @@
+// IIFE to wrap pokemonRepository
 let pokemonRepository = (function () {
-
+// Defining pokemon Array from API
     let pokemonList = [];
     let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
-  
+  // getAll function
     function getAll() {
       return pokemonList;
     }
-  
+  // add Function
     function add(pokemon) {
       pokemonList.push(pokemon);
     }
-  
+  // findByName Function
     function findByName(name) {
       return pokemonList.filter(pokemon => pokemon.name === name);
     }
-  
+  // showDetails Function
     function showDetails(pokemon) {
         loadDetails(pokemon);
         console.log(pokemon);
     }
-  
+  // addListItem Function
     function addListItem(pokemon) {
       let pokemonListElement = document.querySelector('.pokemon-list');
       let listItem = document.createElement('li');
@@ -30,21 +31,21 @@ let pokemonRepository = (function () {
       listItem.appendChild(button);
       pokemonListElement.appendChild(listItem);
     }
-  
+  // showLoadingMessage Function
     function showLoadingMessage() {
         let loadingMessage = document.createElement('p');
         loadingMessage.innerText = 'Loading...';
         loadingMessage.classList.add('loading-message');
         document.body.appendChild(loadingMessage);
       }
-  
+  // hideLoadingMessage Function
       function hideLoadingMessage() {
         let loadingMessage = document.querySelector('.loading-message');
         if (loadingMessage) {
           document.body.removeChild(loadingMessage);
         }
     }
-
+// loadList Function
     function loadList() {
         console.log('loadList started');
         showLoadingMessage();
@@ -65,7 +66,7 @@ let pokemonRepository = (function () {
         console.log('Loading message hidden');
     });
 }
-  
+  // loadDetails Function
     function loadDetails(item) {
       let url = item.detailsUrl;
       console.log('loadDetails started for:', item.name);
@@ -84,7 +85,7 @@ let pokemonRepository = (function () {
             console.log('Loading message hidden');
         });
     }
-  
+  // Return values
     return {
       getAll,
       add,
