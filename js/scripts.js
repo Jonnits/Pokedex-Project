@@ -122,3 +122,34 @@ pokemonRepository.loadList().then(() => {
     pokemonRepository.addListItem(pokemon);
   });
 });
+
+// Search Functionality
+let searchForm = document.querySelector('.form-inline');
+let searchInput = document.querySelector('.form-control[placeholder="Search"]');
+
+searchInput.addEventListener('input', () => {
+  let query = searchInput.value.toLowerCase();
+  let allPokemon = pokemonRepository.getAll();
+
+  // Filter Pokémon based on the search query
+  let filteredPokemon = allPokemon.filter((pokemon) =>
+    pokemon.name.toLowerCase().includes(query)
+  );
+
+  // Clear the current Pokémon list
+  let pokemonList = document.querySelector('.list-group');
+  pokemonList.innerHTML = '';
+
+  // Add the filtered Pokémon back to the list
+  filteredPokemon.forEach((pokemon) => {
+    pokemonRepository.addListItem(pokemon);
+  });
+
+  // Check for an exact match and show the modal if found
+  let exactMatch = allPokemon.find(
+    (pokemon) => pokemon.name.toLowerCase() === query
+  );
+  if (exactMatch) {
+    pokemonRepository.showDetails(exactMatch);
+  }
+});
