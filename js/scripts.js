@@ -131,7 +131,7 @@ searchInput.addEventListener('input', () => {
   let query = searchInput.value.toLowerCase();
   let allPokemon = pokemonRepository.getAll();
 
-  // Filter Pokémon based on the search query
+  // Filter Pokémon based on search query
   let filteredPokemon = allPokemon.filter((pokemon) =>
     pokemon.name.toLowerCase().includes(query)
   );
@@ -145,7 +145,7 @@ searchInput.addEventListener('input', () => {
     pokemonRepository.addListItem(pokemon);
   });
 
-  // Check for an exact match and show the modal if found
+  // Check for exact match and show modal if found
   let exactMatch = allPokemon.find(
     (pokemon) => pokemon.name.toLowerCase() === query
   );
