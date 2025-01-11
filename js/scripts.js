@@ -16,16 +16,17 @@ let pokemonRepository = (function () {
 
   // addListItem Function
   function addListItem(pokemon) {
-    let pokemonList = document.querySelector('.list-group');
-    let listPokemon = document.createElement('li');
-    listPokemon.classList.add('list-group-item');
+    let pokemonListElement = document.querySelector('.list-group');
+    let listItem = document.createElement('li');
+    listItem.classList.add('list-group-item');
 
     let button = document.createElement('button');
     button.innerText = pokemon.name;
     button.classList.add('pokemon-button', 'btn', 'btn-primary');
     button.addEventListener('click', () => showDetails(pokemon));
-    listPokemon.appendChild(button);
-    pokemonList.appendChild(listPokemon);
+
+    listItem.appendChild(button);
+    pokemonListElement.appendChild(listItem);
   }
 
   // showModal Function
@@ -40,7 +41,7 @@ let pokemonRepository = (function () {
     modalHeight.innerText = text;
 
     $('#pokemonModal').modal('show');
-    }
+  }
 
   // showDetails Function
   function showDetails(pokemon) {
@@ -56,7 +57,7 @@ let pokemonRepository = (function () {
   // loadList Function
   function loadList() {
     showLoadingMessage();
-    return fetch(apiUrl) // Fixed apiUrl typo
+    return fetch(apiUrl)
       .then((response) => response.json())
       .then((json) => {
         json.results.forEach((item) => {
@@ -74,19 +75,13 @@ let pokemonRepository = (function () {
   // loadDetails Function
   function loadDetails(item) {
     showLoadingMessage();
-    let url = item.detailsUrl;
-    return fetch(url)
+    return fetch(item.detailsUrl)
       .then((response) => response.json())
       .then((details) => {
         item.imageUrl = details.sprites.front_default;
         item.height = details.height;
-        item.types = details.types
-          .map((typeInfo) => typeInfo.type.name)
-          .join(', ');
       })
-      .catch((e) =>
-        console.error('Error loading details for:', item.name, e)
-      )
+      .catch((e) => console.error('Error loading details for:', item.name, e))
       .finally(() => hideLoadingMessage());
   }
 
@@ -110,14 +105,13 @@ let pokemonRepository = (function () {
   return {
     getAll,
     add,
-    showDetails,
     addListItem,
     loadList,
     loadDetails,
   };
 })();
 
-// forEach method to display details of each Pokemon
+// Load Pokémon and render list
 pokemonRepository.loadList().then(() => {
   pokemonRepository.getAll().forEach((pokemon) => {
     pokemonRepository.addListItem(pokemon);
@@ -125,7 +119,6 @@ pokemonRepository.loadList().then(() => {
 });
 
 // Search Functionality
-let searchForm = document.querySelector('.form-inline');
 let searchInput = document.querySelector('.form-control[placeholder="Enter a Pokemon..."]');
 
 searchInput.addEventListener('input', () => {
@@ -138,8 +131,8 @@ searchInput.addEventListener('input', () => {
   );
 
   // Clear the current Pokémon list
-  let pokemonList = document.querySelector('.list-group');
-  pokemonList.innerHTML = '';
+  let pokemonListElement = document.querySelector('.list-group');
+  pokemonListElement.innerHTML = '';
 
   // Add the filtered Pokémon back to the list
   filteredPokemon.forEach((pokemon) => {
