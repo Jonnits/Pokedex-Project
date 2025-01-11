@@ -126,7 +126,7 @@ pokemonRepository.loadList().then(() => {
 
 // Search Functionality
 let searchForm = document.querySelector('.form-inline');
-let searchInput = document.querySelector('.form-control[placeholder="Search"]');
+let searchInput = document.querySelector('.form-control[placeholder="Enter a Pokemon..."]');
 
 searchInput.addEventListener('input', () => {
   let query = searchInput.value.toLowerCase();
