@@ -1,50 +1,50 @@
 :root {
-    --main-body-color: #ee5252;
-    --font-body: "Jaro", sans-serif;
-    --main-text-color: #fff;
-    --special-text-color: #eddd62;
-  }
+  --main-body-color: #ee5252;
+  --font-body: "Jaro", sans-serif;
+  --main-text-color: #fff;
+  --special-text-color: #eddd62;
+}
 
-  .jaro {
-    font-family: "Jaro", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    color: var(--main-text-color);
-  }
+.jaro {
+  font-family: "Jaro", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--main-text-color);
+}
 
-  h1 {
-    font-family: "Jaro", sans-serif;
-    color:var(--special-text-color);
-  }
+h1 {
+  font-family: "Jaro", sans-serif;
+  color: var(--special-text-color);
+}
 
-  body {
-    background-color: var(--main-body-color);
-  }
+body {
+  background-color: var(--main-body-color);
+}
 
-  p {
-    font-family: var(--font-body);
-    font-weight: 400;
-    font-style: normal;
-    }
+p {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-style: normal;
+}
 
-  .pokemon-button {
-    background-color: #5182be;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+.pokemon-button {
+  background-color: var(--main-body-color);
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
 .pokemon-button:hover {
-    background-color: #0757b9;
+  background-color: var(--special-text-color);
 }
 
 .modal {
@@ -56,7 +56,7 @@
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  background: #fff;
+  background: var(--main-body-color);
   padding: 20px;
   width: 100%;
   max-width: 700px;
