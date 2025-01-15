@@ -1,0 +1,59 @@
+:root {
+    --main-body-color: #ee5252;
+    --font-body: "Jaro", sans-serif;
+    --main-text-color: #fff;
+    --special-text-color: #eddd62
+}
+
+h1 {
+    margin-top: 90px;
+    font-family: "Jaro", sans-serif;
+    color: var(--special-text-color)
+}
+
+h5 {
+    font-family: "Jaro", sans-serif;
+    color: var(--main-body-color)
+}
+
+body {
+    background-color: var(--main-body-color)
+}
+
+p {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-style: normal
+}
+
+.pokemon-button {
+    background-color: var(--main-body-color);
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease
+}
+
+.pokemon-button:hover {
+    background-color: var(--special-text-color)
+}
+
+.modal-content {
+    background: var(--main-body-color);
+    text-align: center
+}
+
+.modal-header h5 {
+    color: var(--special-text-color)
+}
+
+.modal p {
+    margin-bottom: 0
+}
