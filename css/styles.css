@@ -29,8 +29,6 @@ body {
   background-color: var(--main-body-color);
 }
 
-
-
 p {
   font-family: var(--font-body);
   font-weight: 400;

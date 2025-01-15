@@ -30,7 +30,7 @@ let pokemonRepository = (function () {
   }
 
   // showModal Function
-  function showModal(title, text, img) {
+  function showModal(title, text, img, abilitiesText) {
     let modalTitle = document.querySelector('#pokemonModalLabel');
     modalTitle.innerText = title;
 
@@ -39,6 +39,9 @@ let pokemonRepository = (function () {
 
     let modalHeight = document.querySelector('#pokemonHeight');
     modalHeight.innerText = text;
+
+    let modalAbilities = document.querySelector('#pokemonAbilities');
+    modalAbilities.innerText = abilitiesText;
 
     $('#pokemonModal').modal('show');
   }
@@ -49,7 +52,8 @@ let pokemonRepository = (function () {
       showModal(
         pokemon.name,
         'Height: ' + pokemon.height,
-        pokemon.imageUrl
+        pokemon.imageUrl,
+        'Abilities: ' + pokemon.abilities
       );
     });
   }
@@ -80,6 +84,9 @@ let pokemonRepository = (function () {
       .then((details) => {
         item.imageUrl = details.sprites.front_default;
         item.height = details.height;
+        item.abilities = details.abilities
+        .map((abilityInfo) => abilityInfo.ability.name)
+        .join(', ');
       })
       .catch((e) => console.error('Error loading details for:', item.name, e))
       .finally(() => hideLoadingMessage());
