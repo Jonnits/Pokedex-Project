@@ -1,5 +1,6 @@
 // IIFE to wrap pokemonRepository
 let pokemonRepository = (function () {
+
   // Defining pokemon Array from API
   let pokemonList = [];
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
@@ -15,9 +16,9 @@ let pokemonRepository = (function () {
   }
 
   // Capitalize first letter of Pokemon names
-function capitalizeFirstLetter(string) {
+  function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
-}
+  }
 
   // addListItem Function
   function addListItem(pokemon) {

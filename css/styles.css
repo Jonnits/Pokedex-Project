@@ -1,17 +1,8 @@
 :root {
   --main-body-color: #ee5252;
-  --second-body-color: #772929;
   --font-body: "Jaro", sans-serif;
   --main-text-color: #fff;
   --special-text-color: #eddd62;
-}
-
-.jaro {
-  font-family: "Jaro", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  color: var(--main-text-color);
 }
 
 h1 {
@@ -61,10 +52,6 @@ p {
 
 .modal-header h5 {
   color: var(--special-text-color);
-}
-
-.modal h1 {
-  margin-top: 0;
 }
 
 .modal p {
