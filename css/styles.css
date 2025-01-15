@@ -58,7 +58,7 @@ p {
   z-index: 1060;
   position: relative;
   margin: auto;
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
