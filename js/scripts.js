@@ -14,6 +14,11 @@ let pokemonRepository = (function () {
     pokemonList.push(pokemon);
   }
 
+  // Capitalize first letter of Pokemon names
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
   // addListItem Function
   function addListItem(pokemon) {
     let pokemonListElement = document.querySelector('.list-group');
@@ -21,7 +26,7 @@ let pokemonRepository = (function () {
     listItem.classList.add('list-group-item');
 
     let button = document.createElement('button');
-    button.innerText = pokemon.name;
+    button.innerText = capitalizeFirstLetter(pokemon.name);
     button.classList.add('pokemon-button', 'btn', 'btn-primary');
     button.addEventListener('click', () => showDetails(pokemon));
 
@@ -32,7 +37,7 @@ let pokemonRepository = (function () {
   // showModal Function
   function showModal(title, text, img, abilitiesText) {
     let modalTitle = document.querySelector('#pokemonModalLabel');
-    modalTitle.innerText = title;
+    modalTitle.innerText = capitalizeFirstLetter(title);
 
     let modalImage = document.querySelector('#pokemonImage');
     modalImage.setAttribute('src', img);
