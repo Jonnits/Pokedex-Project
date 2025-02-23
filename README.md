@@ -18,4 +18,4 @@ This application uses PokeAPI, accessible at: https://pokeapi.co/api/v2/pokemon/
 
 ## Where can I Access the API?
 
-https://jonnits.github.io/Pokedex-Project/
+You can view the live API here: [PokeDex API](https://jonnits.github.io/Pokedex-Project/)
