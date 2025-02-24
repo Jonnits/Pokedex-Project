@@ -15,3 +15,7 @@ This application is dependent on JavaScript, JSON, an external Pokemon API, and 
 ## Which API the Project Uses
 
 This application uses PokeAPI, accessible at: https://pokeapi.co/api/v2/pokemon/?limit=150.
+
+## Where can I Access the API?
+
+You can view the live API here: [PokeDex API](https://jonnits.github.io/Pokedex-Project/)
